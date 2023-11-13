@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Master</title>
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <!--Navigation-->
+        <div>
+            <button id="go-to-homePage">Home</button>
+            <button id="go-to-goalsPage">Goals</button>
+            <button id="go-to-tasksPage" class="selected">Tasks</button>
+            <button id="go-to-calendarPage">Calendar</button>
+            <button id="go-to-settingsPage">Settings</button>
+        </div>
+        <!--Tasks-->
+        <div>
+            <h3>Upcoming Tasks:
+                <table>
+                    <thead>
+                        <th>
+                            Task:
+                        </th>
+                        <th>
+                            Description:
+                        </th>
+                        <th>
+                            Complete by:
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Completed?
+                        </th>
+                    </thead>
+                    <tbody id="allTasks">
+                    </tbody>
+                </table>
+            </h3>
+        </div>
+
+        <div>
+            <button id="create-new-task">Create New Task</button>
+        </div>
+    </body>
+    <link rel="stylesheet" href="./CSS/tasksPage.css">
+    <script src="../Handlers/navigationHandler.js"></script>
+    <script src="../Handlers/tasksHandler.js"></script>
+</html>

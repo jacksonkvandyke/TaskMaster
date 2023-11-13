@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Master</title>
+    </head>
+    <body>
+        <h1>Create New Goal</h1>
+        <!--Navigation-->
+        <div>
+            <button id="go-to-homePage">Home</button>
+            <button id="go-to-goalsPage" class="selected">Goals</button>
+            <button id="go-to-tasksPage">Tasks</button>
+            <button id="go-to-calendarPage">Calendar</button>
+            <button id="go-to-settingsPage">Settings</button>
+        </div>
+        <br>
+        <div>
+            <h3>Goal information:
+        </div>
+        <form id = "newGoal">
+            <div>
+                <h4>
+                    <div id = "goalInformation">
+                        Goal name: <br><input type="text" placeholder = "Goal name" id="goalName"></input>
+                        <br><br>
+                        Complete by: <br><input type="text" id="goalDate" placeholder="MM/YY"></input>
+                        <br><br>
+                        Description: <br><textarea placeholder = "Description" id="goalDescription"></textarea>
+                        <br><br>
+                        <h5>Note: This will overwrite any previous goals on the same date!</h5>
+                        <button type="submit">Create</button>
+                        <br><br><br>
+                    </div>
+                </h4>
+            </div>
+        </form>
+    </h3>
+    </body>
+    <link rel="stylesheet" href="./CSS/goalcreationPage.css">
+    <script src="../Handlers/goalCreation.js"></script>
+    <script src="../Handlers/navigationHandler.js"></script>
+</html>

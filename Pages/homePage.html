@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html id="contents">
+    <head>
+        <title>Task Master</title>
+    </head>
+    <body>
+        <h1><b>Task Master</b></h1>
+        <!--Navigation-->
+        <div>
+            <button id="go-to-homePage" class="selected">Home</button>
+            <button id="go-to-goalsPage">Goals</button>
+            <button id="go-to-tasksPage">Tasks</button>
+            <button id="go-to-calendarPage">Calendar</button>
+            <button id="go-to-settingsPage">Settings</button>
+        </div>
+        <!--Goals-->
+        <div>
+            <h3>Upcoming Goal:
+                <table>
+                    <thead>
+                        <th>
+                            Goal:
+                        </th>
+                        <th>
+                            Complete by:
+                        </th>
+                    </thead>
+                    <tbody id="currentGoal">
+                    </tbody>
+                </table>
+            </h3>
+        </div>
+
+        <!--Tasks-->
+        <div>
+            <h3>Upcoming Task
+                <table>
+                    <thead>
+                        <th>
+                            Task:
+                        </th>
+                        <th>
+                            Start by:
+                        </th>
+                        <th>
+                            Complete by:
+                        </th>
+                        <th>
+                            Severity:
+                        </th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            Learn English
+                        </td>
+                        <td>
+                            10/23/25
+                        </td>
+                        <td>
+                            10/25/25
+                        </td>
+                        <td>
+                            High
+                        </td>
+                    </tbody>
+                </table>
+            </h3>
+        </div>
+    </body>
+    <footer>Created by: Jackson Van Dyke | 2023-2024</footer>
+    <link rel="stylesheet" href="./CSS/homePage.css">
+    <script src="../Handlers/navigationHandler.js"></script>
+    <script src="../Handlers/homepageHandler.js"></script>
+</html>

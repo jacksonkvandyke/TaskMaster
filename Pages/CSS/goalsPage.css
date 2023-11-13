@@ -1,0 +1,86 @@
+html {
+    background-color:#3b80dc;
+
+}
+
+h1 {
+    text-align:center;
+    font-size: 75px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#A9F358;
+    border: 5px solid #6fc70e;
+    box-shadow: 10px 10px;
+    margin: 15px;
+
+}
+
+h3 {
+    font-size: 50px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#FED834;
+    border: 5px solid #bfa329;
+    box-shadow: 10px 10px;
+
+}
+
+h4 {
+    font-size: 25px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#FED834;
+    border: 5px solid #bfa329;
+    box-shadow: 10px 10px;
+
+}
+
+div {
+    text-align:center;
+    margin-top: 50px;
+
+}
+
+button {
+    font-size: 30px;
+    background-color: #86d6e4;
+    border-color: black;
+    box-shadow: 5px 5px;
+
+}
+
+.selected {
+    font-size: 27px;
+    background-color: #2f9d9f;
+    border-color: black;
+    box-shadow: 5px 5px;
+
+}
+
+#dateRange {
+    font-size: 24px;
+    border: solid 6px #FED834;
+    background-color: #bfa329;
+
+}
+
+#dateLeft {
+    font-size: 34px;
+    border: solid 6px #FED834;
+    background-color: #bfa329;
+    position: absolute;
+    right: 50%;
+
+}
+
+#dateRight {
+    font-size: 34px;
+    border: solid 6px #FED834;
+    background-color: #bfa329;
+    position: absolute;
+    left: 50%;
+    
+}
+
+footer {
+    text-align:center;
+    position: bottom;
+
+}
