@@ -71,6 +71,21 @@ ipcMain.handle('gather-data', () => {
 
 })
 
+//Handle simple data update: Mainly used afters delete or simple changes
+ipcMain.handle('update-data', async (event, argument) => {
+    let newData = argument;
+    let jsonFile = "./dataDirectory/data.json";
+    let object = await JSON.stringify(newData);
+
+    //Set data
+    fs.writeFile(jsonFile, object, err => {
+        if (err){
+            console.log(err);
+        }
+    });
+
+})
+
 //Handle goal creation
 ipcMain.handle('create-new-goal', async (event, argument) => {
     let goalData = await argument;
@@ -118,6 +133,9 @@ ipcMain.handle('create-new-task', async (event, argument) => {
             console.log(err);
         }
     });
+
+    //Send message on success
+    window.loadFile("./Pages/taskSuccess.html");
 })
 
 //Handle task update

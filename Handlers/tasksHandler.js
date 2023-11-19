@@ -96,6 +96,29 @@ function createCells(){
             completed.appendChild(checkBox);
             row.appendChild(completed);
 
+            //Delete task
+            let deleteHolder = document.createElement("td");
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.id = "deleteButton";
+            deleteButton.addEventListener('click', () => {
+                //Remove table row
+                table.removeChild(row);
+
+                //Check for the correct element in the data
+                for(let j = 0; j < Object.keys(data.Tasks).length; j++){
+                    if (data.Tasks[Object.keys(data.Tasks)[j]] == currentData)
+                    delete data.Tasks[Object.keys(data.Tasks)[j]];
+
+                }
+                
+                //Update data
+                ipcRenderer.invoke("update-data", data);
+
+            })
+            deleteHolder.appendChild(deleteButton);
+            row.appendChild(deleteHolder);
+
             //Add listener to update status on goal
             checkBox.addEventListener('change', () => {
                 ipcRenderer.invoke("update-task", [i, checkBox.checked]);

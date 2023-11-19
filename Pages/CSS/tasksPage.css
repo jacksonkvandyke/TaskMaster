@@ -70,6 +70,14 @@ button.collapse {
 
 }
 
+button#deleteButton {
+    font-size: 15px;
+    background-color: #e48686;
+    border-color: black;
+    box-shadow: 0px 0px;
+
+}
+
 footer {
     text-align:center;
     position: bottom;
