@@ -16,7 +16,8 @@
         <!--Tasks-->
         <div>
             <h3>Upcoming Tasks:
-                <table>
+                <button id="collapse" class="collapse">&#x25bc </button>
+                <table id="collapseContent" hidden>
                     <thead>
                         <th>
                             Task:
@@ -28,18 +29,12 @@
                             Complete by:
                         </th>
                         <th>
-                            Status
-                        </th>
-                        <th>
                             Completed?
                         </th>
                     </thead>
                     <br>
-                    <button class="collapse">&#x25bc </button>
-                    <div class="collapseContent" hidden>
-                        <tbody id="allTasks">
-                        </tbody>
-                    </div>
+                    <tbody id="allTasks">
+                    </tbody>
                 </table>
             </h3>
         </div>

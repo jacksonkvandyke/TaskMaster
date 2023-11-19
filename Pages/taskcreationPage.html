@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Master</title>
+    </head>
+    <body>
+        <h1>Create New Task</h1>
+        <!--Navigation-->
+        <div>
+            <button id="go-to-homePage">Home</button>
+            <button id="go-to-goalsPage" class="selected">Goals</button>
+            <button id="go-to-tasksPage">Tasks</button>
+            <button id="go-to-calendarPage">Calendar</button>
+            <button id="go-to-settingsPage">Settings</button>
+        </div>
+        <br>
+        <div>
+            <h3>Task information:
+        </div>
+        <form id = "newTask">
+            <div>
+                <h4>
+                    <div id = "taskInformation">
+                        Task name: <br><input type="text" placeholder = "Task name" id="taskName"></input>
+                        <br><br>
+                        Description: <br><textarea placeholder = "Description" id="taskDescription"></textarea>
+                        <br><br>
+                        Complete by: <br><input type="date" id="taskDate"></input>
+                        <br><br>
+                        <button type="submit">Create</button>
+                        <br><br><br>
+                    </div>
+                </h4>
+            </div>
+        </form>
+    </h3>
+    </body>
+    <link rel="stylesheet" href="./CSS/taskcreationPage.css">
+    <script src="../Handlers/taskCreation.js"></script>
+    <script src="../Handlers/navigationHandler.js"></script>
+</html>

@@ -50,6 +50,11 @@ ipcMain.handle('tasks-Page', () => {
 
 })
 
+ipcMain.handle('go-to-task-creation', () => {
+    window.loadFile("./Pages/taskcreationPage.html");
+
+})
+
 ipcMain.handle('calendar-Page', () => {
     window.loadFile("./Pages/calendarPage.html");
 
@@ -87,6 +92,32 @@ ipcMain.handle('create-new-goal', async (event, argument) => {
 
     //Send message on success
     window.loadFile("./Pages/goalSuccess.html");
+})
+
+//Handle task creation
+ipcMain.handle('create-new-task', async (event, argument) => {
+    let taskData = await argument;
+
+    //Create data section for task
+    let taskLocation = "Task-" + `${Object.keys(data.Tasks).length}`;
+
+    //Correctly slice and restring the date
+    day = taskData[1].slice(8, 10);
+    month = taskData[1].slice(5, 7);
+    year = taskData[1].slice(0, 4);
+    taskData[1] = month + "/" + day + "/" + year;
+
+    //Create goal
+    data.Tasks[taskLocation] = { "Name": `${taskData[0]}`, "Date": `${taskData[1]}`, "Description": `${taskData[2]}`, 'Completed':false}
+    let jsonFile = "./dataDirectory/data.json";
+    let object = await JSON.stringify(data);
+
+    //Set data
+    fs.writeFile(jsonFile, object, err => {
+        if (err){
+            console.log(err);
+        }
+    });
 })
 
 //Handle task update
