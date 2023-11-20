@@ -42,6 +42,11 @@ th {
     border-bottom:5px solid rgb(193, 165, 44);
 }
 
+td {
+    width: 50%;
+
+}
+
 button {
     font-size: 30px;
     background-color: #86d6e4;

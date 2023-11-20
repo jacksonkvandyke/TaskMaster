@@ -2,11 +2,12 @@ let data;
 
 //Add most recent goal to homepage
 function addData(){
-    let chosen = null;
+    //Add goal
+    let chosengoal = null;
     for(element in data.Goals){
         //Set default
-        if (chosen == null){
-            chosen = data.Goals[element];
+        if (chosengoal == null){
+            chosengoal = data.Goals[element];
         }
 
         //Get element date
@@ -19,29 +20,69 @@ function addData(){
 
         //Check which goal to choose
         if (elementYear < chosenYear){
-            chosen = element;
+            chosengoal = element;
         }else {
             if ((elementYear < chosenYear) && (elementMonth < chosenMonth)){
-                chosen = element;
+                chosengoal = element;
             }
         }
     }
 
     //Set the data
-    let tableName = document.createElement('td');
-    let tableMonth = document.createElement('td');
+    let goalName = document.createElement('td');
+    let goalMonth = document.createElement('td');
 
-    if (chosen != null){
-        tableName.textContent = data.Goals[element].Name;
-        tableMonth.textContent = data.Goals[element].Date;
+    if (chosengoal != null){
+        goalName.textContent = chosengoal.Name;
+        goalMonth.textContent = chosengoal.Date;
     }else {
-        tableName.textContent = "No Goals"
-        tableMonth.textContent = "N/A";
+        goalName.textContent = "No Goals"
+        goalMonth.textContent = "N/A";
     }
 
-    document.getElementById("currentGoal").appendChild(tableName);
-    document.getElementById("currentGoal").appendChild(tableMonth);
+    document.getElementById("currentGoal").appendChild(goalName);
+    document.getElementById("currentGoal").appendChild(goalMonth);
+    
+    //Add task
+    let chosentask = null;
+    for(element in data.Tasks){
+        //Set default
+        if (chosentask == null){
+            chosentask = data.Tasks[element];
+        }
 
+        //Get element date
+        let elementMonth = data.Tasks[element].Date.slice(0, 2);
+        let elementYear = data.Tasks[element].Date.slice(3, 5);
+
+        //Get chosen date
+        let chosenMonth = data.Tasks[element].Date.slice(0, 2);
+        let chosenYear = data.Tasks[element].Date.slice(3, 5);
+
+        //Check which goal to choose
+        if (elementYear < chosenYear){
+            chosentask = element;
+        }else {
+            if ((elementYear < chosenYear) && (elementMonth < chosenMonth)){
+                chosentask = element;
+            }
+        }
+    }
+
+    //Set the data
+    let taskName = document.createElement('td');
+    let taskMonth = document.createElement('td');
+
+    if (chosentask != null){
+        taskName.textContent = chosentask.Name;
+        taskMonth.textContent = chosentask.Date;
+    }else {
+        taskName.textContent = "No Tasks"
+        taskMonth.textContent = "N/A";
+    }
+
+    document.getElementById("currentTask").appendChild(taskName);
+    document.getElementById("currentTask").appendChild(taskMonth);
 }
 
 //Gather data from local storage
