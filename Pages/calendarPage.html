@@ -13,7 +13,56 @@
             <button id="go-to-calendarPage" class="selected">Calendar</button>
             <button id="go-to-settingsPage">Settings</button>
         </div>
+        <br><br>
+
+        <!--Calendar-->
+        <table id="calendar">
+            <thead>
+                <th>
+                        <button id="change-date-left" class="change-Date">&#x25C0</button> 
+                        <a id="currentDate">"Month/Year"</a> 
+                        <button id="change-date-right" class="change-Date">&#x25B6</button>
+                </th>
+            </thead>
+            <tbody>
+                <td>
+                    <table>
+                        <thead>
+                            <tr id="calendarDates">
+                                <th id="0">
+                                    SUN
+                                </th>
+                                <th id="1">
+                                    MON
+                                </th>
+                                <th id="2">
+                                    TUS
+                                </th>
+                                <th id="3">
+                                    WED
+                                </th>
+                                <th id="4">
+                                    THU
+                                </th>
+                                <th id="5">
+                                    FRI
+                                </th>
+                                <th id="6">
+                                    SAT
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarHolder">
+                        </tbody>
+                    </table>
+                </td>
+            </tbody>
+            <tbody>
+
+            </tbody>
+        </table>
     </body>
     <link rel="stylesheet" href="./CSS/calendarPage.css">
     <script src="../Handlers/navigationHandler.js"></script>
+    <script src="../Handlers/calendarHandler.js"></script>
 </html>
