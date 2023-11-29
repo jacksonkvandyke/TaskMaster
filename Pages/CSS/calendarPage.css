@@ -17,9 +17,9 @@ h1 {
 h3 {
     font-size: 50px;
     font-family:'Courier New', Courier, monospace;
-    background-color:#FED834;
+    background-color:#d8b92e;
     border: 5px solid #bfa329;
-    box-shadow: 10px 10px;
+    margin: 0;
 
 }
 
@@ -40,7 +40,7 @@ table {
 
 th {
     border-bottom:5px solid rgb(193, 165, 44);
-    width: 150px;
+    width: 75px;
 }
 
 button {
@@ -65,15 +65,34 @@ button.change-Date {
 
 #currentElement {
     text-align: center;
-    height: 150px;
+    height: 50px;
     color: black;
 
 }
 
 #outsideElement {
     text-align: center;
-    height: 150px;
+    height: 50px;
     color: red;
+
+}
+
+#taskText {
+    border: 1px solid black;
+    font-size: 75%;
+    color: black;
+
+}
+
+#taskContent {
+    font-size: 75%;
+    color: black;
+
+}
+
+#goalContent {
+    font-size: 75%;
+    color: black;
 
 }
 
