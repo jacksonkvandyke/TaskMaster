@@ -83,31 +83,6 @@ while (currentDay.getMonth() == dateObject.getMonth()){
             taskText.id = 'taskText';
             newDate.appendChild(taskText);
             taskText.textContent = "Tasks:"
-
-            //Create text documents for each task
-            for (let i = 0; i < Object.keys(data.Tasks).length; i++){
-                if ((parseInt(data.Tasks[Object.keys(data.Tasks)[i]].Date.slice(0, 2))).toString() + "/" + parseInt(data.Tasks[Object.keys(data.Tasks)[i]].Date.slice(3, 6)).toString() + "/" + parseInt(data.Tasks[Object.keys(data.Tasks)[i]].Date.slice(6, 10)).toString() == (parseInt(previousDay.getMonth() + 1).toString() + "/" + previousDay.getDate() + "/" + previousDay.getFullYear()).toString()){
-                    content = document.createElement('div');
-                    content.id = 'taskContent';
-                    taskText.appendChild(content);
-                    content.textContent = data.Tasks[Object.keys(data.Tasks)[i]].Name;
-                    content.textContent = data.Tasks[Object.keys(data.Tasks)[i]].Name;
-
-                    spacer = document.createElement('br');
-                    content.appendChild(spacer);
-
-                    editElement = document.createElement('button');
-                    editElement.textContent = "Edit";
-                    editElement.id = "editButton";
-                    content.appendChild(editElement);
-                    editElement.addEventListener('click', () => {
-                        ipcRenderer.invoke('edit-Page', [data.Tasks[Object.keys(data.Tasks)[i]], 1, Object.keys(data.Tasks)[i]]);
-            
-                    })
-
-                }
-            }
-
             backDay += 1;
 
         }
@@ -322,7 +297,7 @@ document.getElementById('searchBar').addEventListener('input', () => {
 //Gather data from local storage
 async function getData(){
     data = await ipcRenderer.invoke('gather-data', []);
-    clearCalendar();
+    await clearCalendar();
     createCalendar();
     
 }

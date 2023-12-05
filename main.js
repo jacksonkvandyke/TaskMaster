@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
-const data = require('./dataDirectory/data.json');
+let data = require('./dataDirectory/data.json');
 const fs = require('fs');
 
 let window;
@@ -109,9 +109,9 @@ ipcMain.handle('gather-data', () => {
 
 //Handle simple data update: Mainly used afters delete or simple changes
 ipcMain.handle('update-data', async (event, argument) => {
-    let newData = argument;
+    data = argument;
     let jsonFile = "./dataDirectory/data.json";
-    let object = await JSON.stringify(newData);
+    let object = await JSON.stringify(data);
 
     //Set data
     fs.writeFile(jsonFile, object, err => {
@@ -119,6 +119,9 @@ ipcMain.handle('update-data', async (event, argument) => {
             console.log(err);
         }
     });
+
+    //Reload current page to update data
+    window.reload();
 
 })
 
@@ -189,4 +192,7 @@ ipcMain.handle('update-task', async (event, argument) => {
             console.log(err);
         }
     });
+
+    //Reload current page to update data
+    window.reload();
 })
