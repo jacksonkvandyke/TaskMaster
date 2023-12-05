@@ -1,0 +1,62 @@
+html {
+    background-color:#3b80dc;
+
+}
+
+h1 {
+    text-align:center;
+    font-size: 75px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#A9F358;
+    border: 5px solid #6fc70e;
+    box-shadow: 10px 10px;
+    margin: 15px;
+
+}
+
+h3 {
+    font-size: 50px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#d8b92e;
+    border: 5px solid #bfa329;
+    margin: 0;
+
+}
+
+h4 {
+    font-size: 30px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#d8b92e;
+    border: 3px solid #bfa329;
+    margin: 0;
+
+}
+
+input, textarea {
+    font-size: 25px;
+    font-family:'Courier New', Courier, monospace;
+    background-color:#FED834;
+    border: 5px solid #bfa329;
+
+}
+
+div {
+    text-align:center;
+
+}
+
+#updateButton {
+    font-size: 32px;
+    background-color: #A9F358;
+    border-color: black;
+    box-shadow: 0px 0px;
+
+}
+
+#deleteButton {
+    font-size: 32px;
+    background-color: #e48686;
+    border-color: black;
+    box-shadow: 0px 0px;
+
+}

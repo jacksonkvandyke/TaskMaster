@@ -54,6 +54,18 @@ while (currentDay.getMonth() == dateObject.getMonth()){
                     taskText.appendChild(content);
                     content.textContent = data.Tasks[Object.keys(data.Tasks)[i]].Name;
 
+                    spacer = document.createElement('br');
+                    content.appendChild(spacer);
+
+                    editElement = document.createElement('button');
+                    editElement.textContent = "Edit";
+                    editElement.id = "editButton";
+                    content.appendChild(editElement);
+                    editElement.addEventListener('click', () => {
+                        ipcRenderer.invoke('edit-Page', [data.Tasks[Object.keys(data.Tasks)[i]], 1, Object.keys(data.Tasks)[i]]);
+            
+                    })
+
                 }
             }
 
@@ -81,6 +93,18 @@ while (currentDay.getMonth() == dateObject.getMonth()){
                     content.textContent = data.Tasks[Object.keys(data.Tasks)[i]].Name;
                     content.textContent = data.Tasks[Object.keys(data.Tasks)[i]].Name;
 
+                    spacer = document.createElement('br');
+                    content.appendChild(spacer);
+
+                    editElement = document.createElement('button');
+                    editElement.textContent = "Edit";
+                    editElement.id = "editButton";
+                    content.appendChild(editElement);
+                    editElement.addEventListener('click', () => {
+                        ipcRenderer.invoke('edit-Page', [data.Tasks[Object.keys(data.Tasks)[i]], 1, Object.keys(data.Tasks)[i]]);
+            
+                    })
+
                 }
             }
 
@@ -100,6 +124,18 @@ while (currentDay.getMonth() == dateObject.getMonth()){
             content.id = 'goalContent';
             calendarGoals.appendChild(content);
             content.textContent = data.Goals[Object.keys(data.Goals)[i]].Name;
+
+            spacer = document.createElement('br');
+            content.appendChild(spacer);
+
+            editElement = document.createElement('button');
+            editElement.textContent = "Edit";
+            editElement.id = "editButton";
+            content.appendChild(editElement);
+            editElement.addEventListener('click', () => {
+                ipcRenderer.invoke('edit-Page', [data.Goals[Object.keys(data.Goals)[i]], 0, Object.keys(data.Goals)[i]]);
+    
+            })
 
         }
     }
@@ -143,12 +179,153 @@ document.getElementById('change-date-right').addEventListener('click', () => {
 
 })
 
+//Search bar
+document.getElementById('searchBar').addEventListener('input', () => {
+    //Clear contents prior to searching
+    contents = document.getElementById('contents');
+    while (contents.children.length > 0){
+        contents.removeChild(contents.firstChild);
+
+    }
+
+    result = [];
+    filter = document.getElementById('searchBar').value;
+
+    if (filter.length == 0){
+        return
+
+    }
+
+    for (let i = 0; i < Object.keys(data.Goals).length; i++){
+        goalDate = data.Goals[Object.keys(data.Goals)[i]].Date.toString();
+        goalName = data.Goals[Object.keys(data.Goals)[i]].Name.toString();
+
+        currentLength = 0
+        for (let j = 0; j < goalDate.length; j++){
+            if (goalDate[j] == filter[currentLength]){
+                currentLength += 1;
+
+            }else {
+                currentLength = 0;
+
+            }
+
+            if (currentLength == filter.length){
+                result.push([data.Goals[Object.keys(data.Goals)[i]], 0, Object.keys(data.Goals)[i]])
+                break;
+
+            }
+
+        }
+
+        currentLength = 0
+        for (let j = 0; j < goalName.length; j++){
+            if (goalName[j] == filter[currentLength]){
+                currentLength += 1;
+
+            }else {
+                currentLength = 0;
+
+            }
+
+            if (currentLength == filter.length){
+                result.push([data.Goals[Object.keys(data.Goals)[i]], 0, Object.keys(data.Goals)[i]])
+                break;
+
+            }
+
+        }
+
+    }
+
+    for (let i = 0; i < Object.keys(data.Tasks).length; i++){
+        taskDate = data.Tasks[Object.keys(data.Tasks)[i]].Date.toString();
+        taskName = data.Tasks[Object.keys(data.Tasks)[i]].Name.toString();
+
+        currentLength = 0
+        for (let j = 0; j < taskDate.length; j++){
+            if (taskDate[j] == filter[currentLength]){
+                currentLength += 1;
+
+            }else {
+                currentLength = 0;
+
+            }
+
+            if (currentLength == filter.length){
+                result.push([data.Tasks[Object.keys(data.Tasks)[i]], 1, Object.keys(data.Tasks)[i]])
+                break;
+
+            }
+
+        }
+
+        currentLength = 0
+        for (let j = 0; j < taskName.length; j++){
+            if (taskName[j] == filter[currentLength]){
+                currentLength += 1;
+
+            }else {
+                currentLength = 0;
+
+            }
+
+            if (currentLength == filter.length){
+                result.push([data.Tasks[Object.keys(data.Tasks)[i]], 1, Object.keys(data.Tasks)[i]])
+                break;
+
+            }
+
+        }
+
+    }
+
+    //Add all results to contents
+    for (let i = 0; i < result.length; i++){
+        newElement = document.createElement('div');
+        
+        //Add required info
+        elementType = document.createElement('div');
+        if (result[i][1] == 0){
+            elementType.textContent = "Type: Goal"
+
+        }else {
+            elementType.textContent = "Type: Task"
+
+        }
+        newElement.appendChild(elementType);
+
+        elementName = document.createElement('div');
+        elementName.textContent = "Name: " + result[i][0].Name;
+        newElement.appendChild(elementName);
+
+        elementDate = document.createElement('div');
+        elementDate.textContent = "Date: " + result[i][0].Date;
+        newElement.appendChild(elementDate);
+
+        editElement = document.createElement('button');
+        editElement.addEventListener('click', () => {
+            ipcRenderer.invoke('edit-Page', result[i]);
+
+        })
+        editElement.textContent = "Edit";
+        editElement.id = "editButton";
+        newElement.appendChild(editElement);
+
+        newElement.id = "contentElement";
+        contents.appendChild(newElement);
+
+    }
+
+})
+
 //Gather data from local storage
 async function getData(){
     data = await ipcRenderer.invoke('gather-data', []);
+    clearCalendar();
     createCalendar();
     
 }
 
 //Call get data
-getData()
+getData();

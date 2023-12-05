@@ -19,6 +19,24 @@ function createWindow(){
     window.loadFile("./Pages/homePage.html");
 }
 
+let editWindow;
+
+//Create window
+function createeditWindow(){
+    editWindow = new BrowserWindow({ 
+        width: 600,
+        height: 450,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
+    });
+    editWindow.setAlwaysOnTop(true);
+}
+
+//Create edit window
+
+
 app.whenReady().then(() => {
     createWindow();
 });
@@ -57,6 +75,19 @@ ipcMain.handle('go-to-task-creation', () => {
 
 ipcMain.handle('calendar-Page', () => {
     window.loadFile("./Pages/calendarPage.html");
+
+})
+
+let editData;
+ipcMain.handle('edit-Page', (event, argument) => {
+    createeditWindow();
+    editWindow.loadFile("./Pages/editPage.html");
+    editData = argument;
+
+})
+
+ipcMain.handle('get-edit-data', () => {
+    return editData;
 
 })
 
