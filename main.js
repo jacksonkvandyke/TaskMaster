@@ -91,6 +91,11 @@ ipcMain.handle('get-edit-data', () => {
 
 })
 
+ipcMain.handle('close-edit', () => {
+    editWindow.close();
+
+})
+
 ipcMain.handle('settings-Page', () => {
     window.loadFile("./Pages/settingsPage.html");
 

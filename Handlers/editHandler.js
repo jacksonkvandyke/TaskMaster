@@ -63,6 +63,7 @@ function editGoal(){
 
         //Update data
         ipcRenderer.invoke('update-data', data);
+        ipcRenderer.invoke('close-edit');
     
     })
 
@@ -73,6 +74,7 @@ function editGoal(){
 
         //Update data
         ipcRenderer.invoke('update-data', data);
+        ipcRenderer.invoke('close-edit');
     
     })
 
@@ -132,6 +134,7 @@ function editTask(){
 
         //Update data
         ipcRenderer.invoke('update-data', data);
+        ipcRenderer.invoke('close-edit');
 
     })
 
@@ -142,6 +145,7 @@ function editTask(){
     
         //Update data
         ipcRenderer.invoke('update-data', data);
+        ipcRenderer.invoke('close-edit');
         
     })
 
