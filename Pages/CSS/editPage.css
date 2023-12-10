@@ -1,12 +1,12 @@
 html {
     background-color:#3b80dc;
+    font-family:'Courier New';
 
 }
 
 h1 {
     text-align:center;
     font-size: 75px;
-    font-family:'Courier New', Courier, monospace;
     background-color:#A9F358;
     border: 5px solid #6fc70e;
     box-shadow: 10px 10px;
@@ -16,7 +16,6 @@ h1 {
 
 h3 {
     font-size: 50px;
-    font-family:'Courier New', Courier, monospace;
     background-color:#d8b92e;
     border: 5px solid #bfa329;
     margin: 0;
@@ -25,7 +24,6 @@ h3 {
 
 h4 {
     font-size: 30px;
-    font-family:'Courier New', Courier, monospace;
     background-color:#d8b92e;
     border: 3px solid #bfa329;
     margin: 0;
@@ -34,7 +32,6 @@ h4 {
 
 input, textarea {
     font-size: 25px;
-    font-family:'Courier New', Courier, monospace;
     background-color:#FED834;
     border: 5px solid #bfa329;
 

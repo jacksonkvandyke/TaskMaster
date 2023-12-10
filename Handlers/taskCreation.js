@@ -1,3 +1,5 @@
+let data;
+
 //Add listener to create new goal
 document.getElementById("newTask").addEventListener("submit", () => {
     event.preventDefault();

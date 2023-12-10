@@ -13,7 +13,23 @@
             <button id="go-to-calendarPage">Calendar</button>
             <button id="go-to-settingsPage" class="selected">Settings</button>
         </div>
+
+        <!--Settings-->
+        <div>
+            <h3>Background Color: <br><input type="color" id="backgroundColor" value="#ff0000"></h3>
+        </div>
+        <div>
+            <h3>Font Style: <br>
+                <select name="fontStyle" id="fontStyle">
+                    <option value='Times New Roman'>Times New Roman</option>
+                    <option value='Arial'>Arial</option>
+                    <option value='Lucida Console'>Lucida Console</option>
+                    <option value='Courier New'>Courier New</option>
+                </select>
+            </h3>
+        </div>
     </body>
     <link rel="stylesheet" href="./CSS/settingsPage.css">
     <script src="../Handlers/navigationHandler.js"></script>
+    <script src="../Handlers/settingsHandler.js"></script>
 </html>
