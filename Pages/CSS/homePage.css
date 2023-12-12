@@ -48,7 +48,6 @@ td {
 
 button {
     font-size: 30px;
-    background-color: #86d6e4;
     border-color: black;
     box-shadow: 5px 5px;
 
@@ -56,7 +55,7 @@ button {
 
 .selected {
     font-size: 27px;
-    background-color: #2f9d9f;
+    filter: brightness(50%);
     border-color: black;
     box-shadow: 5px 5px;
 

@@ -16,24 +16,21 @@ h1 {
 
 h3 {
     font-size: 50px;
-    background-color:#d8b92e;
-    border: 5px solid #bfa329;
+    border: 5px solid;
     margin: 0;
 
 }
 
 h4 {
     font-size: 30px;
-    background-color:#d8b92e;
-    border: 3px solid #bfa329;
+    border: 3px solid;
     margin: 0;
 
 }
 
 input, textarea {
     font-size: 25px;
-    background-color:#FED834;
-    border: 5px solid #bfa329;
+    border: 5px solid;
 
 }
 

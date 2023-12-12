@@ -129,8 +129,9 @@ async function settimeLine(){
                     plotDetails.style.position = "relative";
                     plotDetails.style.display = "inline-block";
                     plotDetails.style.width = currentDate.Name + "ch";
-                    plotDetails.style.border = "#bfa329 solid 4px";
-                    plotDetails.style.backgroundColor = "#FED834"
+                    plotDetails.style.border = "solid 4px";
+                    plotDetails.style.borderColor = data.Settings.subheaderborderColor;
+                    plotDetails.style.backgroundColor = data.Settings.subheaderColor;
                     plotDetails.textContent = currentDate.Name + ": " + currentDate.Description + " Complete by: " + currentDate.Date;
     
                     //Add hoverover events
@@ -162,8 +163,9 @@ async function settimeLine(){
                         plotDetails.style.position = "relative";
                         plotDetails.style.display = "inline-block";
                         plotDetails.style.width = currentDate.Name + "ch";
-                        plotDetails.style.border = "#bfa329 solid 4px";
-                        plotDetails.style.backgroundColor = "#FED834"
+                        plotDetails.style.border = "solid 4px";
+                        plotDetails.style.borderColor = data.Settings.subheaderborderColor;
+                        plotDetails.style.backgroundColor = data.Settings.subheaderColor;
                         plotDetails.textContent = currentDate.Name + ": " + currentDate.Description + " Complete by: " + currentDate.Date;
     
                         //Add hoverover events
