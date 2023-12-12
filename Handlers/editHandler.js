@@ -57,9 +57,11 @@ function editGoal(){
     //Data update
     document.getElementById('updateButton').addEventListener('click', () => {
         //Update the specified data at specified location
-        data.Goals[editData[2]].Name = newName.value;
-        data.Goals[editData[2]].Date = newDate.value;
-        data.Goals[editData[2]].Description = newDescription.value;
+        data.Goals[newDate.value] = data.Goals[editData[2]];
+        delete data.Goals[editData[2]];
+        data.Goals[newDate.value].Name = newName.value;
+        data.Goals[newDate.value].Date = newDate.value;
+        data.Goals[newDate.value].Description = newDescription.value;
 
         //Update data
         ipcRenderer.invoke('update-data', data);
